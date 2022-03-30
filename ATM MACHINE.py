@@ -66,7 +66,8 @@ def withdraw():
 
     else:
         print('****************************************************************** \n'
-            'Withdraw request accepted')
+            'Withdraw request accepted\n'
+              '******************************************************************')
         print("")
         print('Remaining balance: ', '\033[1m',  balance_remain, '\033[0m')
         print("")
