@@ -6,17 +6,16 @@ balance = 100
 #     print('Incorrect pin entered 3 times. \n'
 #           ' Card has been blocked.\n'
 #           'Please contact CFG ')
-
-print('\033[1m' , '******Hello and Welcome to The CFG ATM***** \033[0m')
-name = input('Please Enter Your Name: ')
-
 def welcome():
+    print('\033[1m' , '******Hello and Welcome to The CFG ATM***** \033[0m')
+
+def pin():
     pin= {2903}
     count = 1 #sets the number for incorrect pin entered
 
     while True:
         try:
-            entered_pin = int(input('Welcome ' + name  + ' Please enter your Four Digit Pin Code: '))
+            entered_pin = int(input('Welcome ' + name  + ' Please enter your Four Digit Pin Code: \n'))
             if entered_pin not in pin:
                    raise ValueError('Incorrect pin entered  \n'
                                     'Please try again:  ')
@@ -25,7 +24,7 @@ def welcome():
                       '                 Your details are being processed \n'
                       '******************************************************************')
             break
-        except ValueError as e:
+        except ValueError:
             print('Incorrect pin entered')
             print()
             count += 1
@@ -42,9 +41,9 @@ def welcome():
 
 def account_details():
     print('Account Name: ' '\033[1m', name ,'\033[0m')
-    print("")
+    print()
     print('Account Balance:' '\033[1m', balance, '\033[0m')
-    print("")
+    print()
 
 def withdraw():
     withdraw = int(input('How much would you like to withdraw today: '))
@@ -68,28 +67,30 @@ def withdraw():
         print('****************************************************************** \n'
             'Withdraw request accepted\n'
               '******************************************************************')
-        print("")
+        print()
         print('Remaining balance: ', '\033[1m',  balance_remain, '\033[0m')
-        print("")
+        print()
         print('Thank you for using our services. \n'
               'Please remove your card :)')
         quit()
 
 
 welcome()
+name = input('Please Enter Your Name: \n ')
+pin()
 
 while True:
-        trans = input("Would you like to withdraw some money? (y/n):")
-        if trans == "y":
+        trans = input('Would you like to withdraw some money? (y/n): \n')
+        if trans == 'y':
 
             account_details()
             withdraw()
-        elif trans == "n":
+        elif trans == 'n':
             print('****************************************************************** \n'
                   'Thank you for using CFG Bank \n'
                   'Goodbye \n'
                   '******************************************************************')
             quit()
         else:
-            print("Wrong command!  Enter 'y' for yes and 'n' for NO.\n")
+            print('Wrong command!  Enter ' ,y,' for yes and ',n,' for NO.\n')
 
